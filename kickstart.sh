@@ -5,7 +5,7 @@ sudo apt update && apt upgrade
 sudo apt install -y git
 
 # general purpose
-sudo apt install -y vim pavucontrol
+sudo apt install -y vim pavucontrol vlc
 
 # node version manager for nodejs and npm
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
