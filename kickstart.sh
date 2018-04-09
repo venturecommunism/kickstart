@@ -79,7 +79,9 @@ fi
 if [ ! -d "apps/react-app" ]; then
   echo "Sleeping 5 seconds... Didn't find directory apps/react-app"
   sleep 5
-  git clone https://github.com/venturecommunism/react-app apps
+  cd ~/apps
+  git clone https://github.com/venturecommunism/react-app
+  cd ~
 fi
 if [ ! -d "apps/react-app/node_modules" ]; then
   echo "Sleeping 5 seconds... apps/react-app is not installed"
