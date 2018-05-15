@@ -95,28 +95,6 @@ if [ ! -f "apps/react-app/config/url.js" ] ; then
   cp apps/react-app/config/example-url.js apps/react-app/config/url.js
 fi
 
-npm install -g react-native-cli
-sudo apt-add-repository -y ppa:webupd8team/java
-sudo apt-get update
-sudo apt-get install -y oracle-java8-installer
-sudo apt-get install -y oracle-java8-set-default
-
-cd ~
-if [ ! -f "android-studio-ide-171.4443003-linux.zip" ]; then
-  #wget https://dl.google.com/dl/android/studio/ide-zips/2.3.3.0/android-studio-ide-162.4069837-linux.zip
-  wget https://dl.google.com/dl/android/studio/ide-zips/3.0.1.0/android-studio-ide-171.4443003-linux.zip
-fi
-if [ ! -d "/opt/android-studio" ]; then
-  echo "Didn't find directory /opt/android-studio"
-  sleep 10
-  #sudo unzip android-studio-ide-162.4069837-linux.zip -d /opt
-  sudo unzip android-studio-ide-171.4443003-linux.zip -d /opt
-  cd /opt/android-studio/bin
-  ./studio.sh
-fi
-
-sudo apt-get install -y android-tools-adb
-
 cd ~
 if [ ! -d "/opt/camlistore" ]; then
   wget https://perkeep.org/dl/monthly/camlistore-20170505-linux.tar.gz
@@ -154,3 +132,30 @@ fi
 # A GPG key is required, please use 'camput init --newkey'.
 # Or if you know what you're doing, you can set the global camput flag --secret-keyring, or the CAMLI_SECRET_RING env var, to use your own GPG ring. And --gpgkey=<pubid> or GPGKEY to select which key ID to use.
 
+npm install -g react-native-cli
+sudo apt-add-repository -y ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install -y oracle-java8-installer
+sudo apt-get install -y oracle-java8-set-default
+
+cd ~
+if [ ! -f "android-studio-ide-171.4443003-linux.zip" ]; then
+  #wget https://dl.google.com/dl/android/studio/ide-zips/2.3.3.0/android-studio-ide-162.4069837-linux.zip
+  wget https://dl.google.com/dl/android/studio/ide-zips/3.0.1.0/android-studio-ide-171.4443003-linux.zip
+fi
+if [ ! -d "/opt/android-studio" ]; then
+  echo "Didn't find directory /opt/android-studio"
+  sleep 10
+  #sudo unzip android-studio-ide-162.4069837-linux.zip -d /opt
+  sudo unzip android-studio-ide-171.4443003-linux.zip -d /opt
+  cd /opt/android-studio/bin
+  ./studio.sh
+fi
+
+sudo apt-get install -y android-tools-adb
+
+# install kalarm for timers / alarms
+sudo apt-get install -y kalarm
+
+# fixes a bug in timezones with kalarm
+sudo apt-get install -y plasma-workspace
