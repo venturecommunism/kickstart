@@ -90,10 +90,10 @@ if [ ! -d "apps/react-app/node_modules" ]; then
   cd apps/react-app
   yarn
 fi
-if [ ! -f "apps/react-app/config/url.js" ] ; then
+if [ ! -f "apps/react-app/config/config.js" ] ; then
   echo "Sleeping 5 seconds... Didn't find file apps/react-app/config/url.js"
   sleep 5
-  cp apps/react-app/config/example-url.js apps/react-app/config/url.js
+  cp apps/react-app/config/example-config.js apps/react-app/config/config.js
 fi
 
 cd ~
