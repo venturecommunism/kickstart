@@ -134,6 +134,9 @@ fi
 # Or if you know what you're doing, you can set the global camput flag --secret-keyring, or the CAMLI_SECRET_RING env var, to use your own GPG ring. And --gpgkey=<pubid> or GPGKEY to select which key ID to use.
 
 npm install -g react-native-cli
+
+# sometimes dpkg --configure -a was needed to undo a bad java8-installer install
+sudo dpkg --configure -a
 sudo apt-add-repository -y ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install -y oracle-java8-installer
