@@ -67,8 +67,7 @@ fi
 if [ ! -d ".xmonad" ]; then
   echo "Sleeping 5 seconds... Didn't find directory .xmonad"
   sleep 5
-  mkdir .xmonad
-  cp -r xmonad-ubuntu-conf/* .xmonad
+  cp -r xmonad-ubuntu-conf .xmonad
   ~/.xmonad/install-xmonad
 fi
 
