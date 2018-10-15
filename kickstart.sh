@@ -1,3 +1,5 @@
+set -e
+
 # prelim
 echo '*****'
 echo '*****'
@@ -17,10 +19,10 @@ sudo apt install -y git
 # general purpose
 echo '*****'
 echo '*****'
-echo 'Install vim, pavucontrol, vlc, curl'
+echo 'Install vim, pavucontrol, vlc, curl, firefox'
 echo '*****'
 echo '*****'
-sudo apt install -y vim pavucontrol vlc curl
+sudo apt install -y vim pavucontrol vlc curl firefox
 
 # install yarn
 echo '*****'
@@ -31,14 +33,6 @@ echo '*****'
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update
-
-# standardjs CLI tool for javascript linting (cleanup)
-echo '*****'
-echo '*****'
-echo 'Install standard js linter'
-echo '*****'
-echo '*****'
-npm install standard --global
 
 # node version manager for nodejs and npm
 echo '*****'
@@ -55,6 +49,14 @@ export NVM_DIR="$HOME/.nvm"
 nvm install 8.9.4
 nvm alias default 8.9.4
 npm install -g yarn
+
+# standardjs CLI tool for javascript linting (cleanup)
+echo '*****'
+echo '*****'
+echo 'Install standard js linter'
+echo '*****'
+echo '*****'
+npm install standard --global
 
 cd ~
 if [ ! -d "xmonad-ubuntu-conf" ]; then
@@ -138,6 +140,14 @@ sudo apt-get update
 sudo apt-get install -y oracle-java8-installer
 sudo apt-get install -y oracle-java8-set-default
 
+sudo apt-get install -y android-tools-adb
+
+# install kalarm for timers / alarms
+sudo apt-get install -y kalarm
+
+# fixes a bug in timezones with kalarm
+sudo apt-get install -y plasma-workspace
+
 cd ~
 if [ ! -f "android-studio-ide-171.4443003-linux.zip" ]; then
   #wget https://dl.google.com/dl/android/studio/ide-zips/2.3.3.0/android-studio-ide-162.4069837-linux.zip
@@ -151,11 +161,3 @@ if [ ! -d "/opt/android-studio" ]; then
   cd /opt/android-studio/bin
   ./studio.sh
 fi
-
-sudo apt-get install -y android-tools-adb
-
-# install kalarm for timers / alarms
-sudo apt-get install -y kalarm
-
-# fixes a bug in timezones with kalarm
-sudo apt-get install -y plasma-workspace
