@@ -135,12 +135,7 @@ fi
 
 npm install -g react-native-cli
 
-# sometimes dpkg --configure -a was needed to undo a bad java8-installer install
-sudo dpkg --configure -a
-sudo apt-add-repository -y ppa:webupd8team/java
-sudo apt-get update
-sudo apt-get install -y oracle-java8-installer
-sudo apt-get install -y oracle-java8-set-default
+sudo apt-get install -y openjdk-java8-jdk
 
 sudo apt-get install -y android-tools-adb
 
@@ -163,3 +158,6 @@ if [ ! -d "/opt/android-studio" ]; then
   cd /opt/android-studio/bin
   ./studio.sh
 fi
+
+###### for tensorflow things ######
+curl -fsSL https://get.docker.com | sh
